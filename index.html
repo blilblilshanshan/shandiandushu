@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闪电读书</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">闪电读书</p>
+          <h1>阅读、上传、下载，一站式完成。</h1>
+          <p class="subtitle">
+            用户可以直接阅读书籍，管理员输入密码后可以编写和上传 TXT 书籍。
+          </p>
+        </div>
+        <div class="actions">
+          <button id="admin-login-btn">管理员入口</button>
+          <button id="admin-logout-btn" class="secondary hidden">退出管理员</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>书架</h2>
+            <span id="book-count">0 本书</span>
+          </div>
+          <div id="book-list" class="book-list"></div>
+        </aside>
+
+        <section class="reader-panel">
+          <div id="reader-empty" class="empty-state">请选择一本书开始阅读。</div>
+          <div id="reader-view" class="reader-view hidden">
+            <div class="reader-toolbar">
+              <div>
+                <p class="book-meta">当前阅读</p>
+                <h3 id="reader-title"></h3>
+              </div>
+              <button id="download-btn">下载为 TXT</button>
+            </div>
+            <article id="reader-content" class="reader-content"></article>
+          </div>
+        </section>
+
+        <section id="admin-panel" class="admin-panel hidden">
+          <h2>管理员编书</h2>
+          <form id="book-form">
+            <label>
+              <span>书名</span>
+              <input id="book-title" required />
+            </label>
+            <label>
+              <span>内容</span>
+              <textarea id="book-content" rows="16" required></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit">保存书籍</button>
+              <button id="new-book-btn" type="button" class="secondary">新增书籍</button>
+              <label class="file-btn">
+                <span>上传 TXT</span>
+                <input type="file" id="txt-upload" accept=".txt,text/plain" />
+              </label>
+            </div>
+          </form>
+          <p class="hint">上传 TXT 后会自动填充内容，标题会使用文件名。</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
